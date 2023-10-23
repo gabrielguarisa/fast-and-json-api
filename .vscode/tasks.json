@@ -1,0 +1,22 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tests",
+      "type": "shell",
+      "command": "poetry run pytest --cov-report=term-missing:skip-covered --cov=pydantic2jsonapi tests/ -vv"
+    },
+    {
+      "label": "formatting",
+      "type": "shell",
+      "command": "poetry run ruff format ."
+    },
+    {
+      "label": "check-formatting",
+      "type": "shell",
+      "command": "poetry run ruff check ."
+    }
+  ]
+}

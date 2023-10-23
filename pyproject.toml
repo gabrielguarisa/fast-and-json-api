@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pydantic2jsonapi"
+version = "0.1.0"
+description = "A minimalistic library to convert Pydantic models to JSON:API compliant."
+authors = ["Gabriel Guarisa <gabrielguarisa@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.4.2"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.1.1"
+pytest = "^7.4.2"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
