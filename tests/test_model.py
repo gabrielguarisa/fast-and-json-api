@@ -138,3 +138,16 @@ def test_jsonapi_model_with_many_from_original_instance(
 
     print(jsonapi_instance.model_dump())
     assert jsonapi_instance.model_dump() == expected_dict
+
+def test_jsonapi_model_from_dict_instance(pydantic_class):
+    jsonapi_class = p2j.to_jsonapi(pydantic_class)
+
+    jsonapi_instance = jsonapi_class.from_dict_instance(
+        **{"name": "example", "price": 100.0, "is_offer": True}
+    )
+
+    assert isinstance(jsonapi_instance, jsonapi_class)
+    assert jsonapi_instance.data.type_ == "item"
+    assert jsonapi_instance.data.attributes.name == "example"
+    assert jsonapi_instance.data.attributes.price == 100.0
+    assert jsonapi_instance.data.attributes.is_offer == True
